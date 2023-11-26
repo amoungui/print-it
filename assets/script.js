@@ -16,3 +16,14 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+var dotsDiv = document.getElementsByClassName("dots")[0]; // Obtenez la référence de la div
+
+for (var i = 0; i < slides.length; i++) {
+	var span = document.createElement("span"); // Créez un nouvel élément span
+	span.className = "dot"; // Ajoutez la classe 'dot' à l'élément span
+	if (i === 0) {
+		span.className += " dot_selected"; // Ajoutez la classe 'dot_selected' au premier élément
+	}
+	dotsDiv.appendChild(span); // Ajoutez l'élément span à la div
+}
