@@ -27,3 +27,20 @@ for (var i = 0; i < slides.length; i++) {
 	}
 	dotsDiv.appendChild(span); // Ajoutez l'élément span à la div
 }
+
+function moveSlides(n){
+	showSlides(n)
+}
+
+function showSlides(n) {
+	var slides = document.getElementsByClassName("arrow");
+	if(n == 1){
+		alert('arrow right');
+		console.log(slides);
+	}
+	if(n == -1){
+		alert('arrow left');
+		console.log(slides);
+	}
+
+}
