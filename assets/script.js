@@ -32,11 +32,25 @@ function moveSlides(n){
 	showSlides(n)
 }
 
+function slider(n) {
+	let slide = slides[n];
+	var customSlider = document.getElementById("banner"); // Obtenez la référence de la div d'id banner
+	var img = document.createElement("img"); // Créez un nouvel élément img
+	var p = document.createElement("p"); // Créez un nouvel élément p
+	img.className = "banner-img"; // Créez une class de nom banner-img
+	img.src = "./assets/images/slideshow/" + slide.image; // Construction de l'url de l'image
+	img.alt = "Banner Print-it"; // Définition d'un texte alternatif par défaut
+	p.innerHTML = slide.tagLine; // Inserer le text html dans la balise p
+	customSlider.appendChild(img) // Ajouter img dans le conteneur banner
+	customSlider.appendChild(p) // Ajouter p dans le conteneur banner
+	console.log(customSlider)
+}
+
 function showSlides(n) {
 	var slides = document.getElementsByClassName("arrow");
 	if(n == 1){
 		alert('arrow right');
-		console.log(slides);
+		slider(1);
 	}
 	if(n == -1){
 		alert('arrow left');
