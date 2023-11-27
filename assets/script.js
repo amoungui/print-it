@@ -28,13 +28,35 @@ for (var i = 0; i < slides.length; i++) {
 	dotsDiv.appendChild(span); // Ajoutez l'élément span à la div
 }
 
-
-var slideIndex = 1;
+var slideIndex = 0;
 showSlides(slideIndex);
 
 function moveSlides(n){
-	showSlides(n)
+	showSlides(slideIndex += n);
 }
+
+function showSlides(n) {
+	var i;
+	var slidesDiv = document.getElementById("slider-content");// Obtenez la référence de la div d'id slider-content
+	var dots = document.getElementsByClassName("dot");// obtenir la référence des point dot
+	if (n >= slides.length) {slideIndex = 0} // on check si n est supérieur à la taille su slide alors on réinitialise
+	if (n < 0) {slideIndex = slides.length - 1} // même logique mais l'on se place à la dernière slide
+	
+	// On nettoie la div
+	while (slidesDiv.firstChild) {
+		slidesDiv.removeChild(slidesDiv.firstChild);
+	}
+
+	// Ajout de nouveauslide
+	slider(slideIndex);
+
+	// mise à jour des dots
+	for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" dot_selected", "");
+	}
+	dots[slideIndex].className += " dot_selected";
+}
+
 
 function slider(n) {
 	let slide = slides[n];
@@ -47,27 +69,4 @@ function slider(n) {
 	p.innerHTML = slide.tagLine; // Inserer le text html dans la balise p
 	customSlider.appendChild(img) // Ajouter img dans le conteneur banner
 	customSlider.appendChild(p) // Ajouter p dans le conteneur banner
-	console.log(customSlider)
-}
-
-function showSlides(n) {
-	var slides = document.getElementsByClassName("arrow");
-
-    var i;
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    
-	for (i = 0; i < slides.length; i++) {
-		// enlever les balise img et p precédente 
-		// ajouter les nouvelle balise img et p du tableau slides de l'index i
-		// utiliser la function slider pour ajouter les nouveau contenu
-        // slides[i].style.display = "none";
-    }
-    
-	for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" dot_selected", "");
-    }
-
-    dots[slideIndex-1].className += " dot_selected"; // mettre le point courant en class active
 }
