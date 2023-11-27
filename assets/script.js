@@ -28,6 +28,10 @@ for (var i = 0; i < slides.length; i++) {
 	dotsDiv.appendChild(span); // Ajoutez l'élément span à la div
 }
 
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
 function moveSlides(n){
 	showSlides(n)
 }
@@ -48,13 +52,22 @@ function slider(n) {
 
 function showSlides(n) {
 	var slides = document.getElementsByClassName("arrow");
-	if(n == 1){
-		alert('arrow right');
-		slider(1);
-	}
-	if(n == -1){
-		alert('arrow left');
-		console.log(slides);
-	}
 
+    var i;
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    
+	for (i = 0; i < slides.length; i++) {
+		// enlever les balise img et p precédente 
+		// ajouter les nouvelle balise img et p du tableau slides de l'index i
+		// utiliser la function slider pour ajouter les nouveau contenu
+        // slides[i].style.display = "none";
+    }
+    
+	for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" dot_selected", "");
+    }
+
+    dots[slideIndex-1].className += " dot_selected"; // mettre le point courant en class active
 }
