@@ -103,7 +103,10 @@ header {
 .devis {
 	background-color: var(--secondary-color);
 }
-
+#slider-content {
+	z-index: -1;
+	position: relative;
+}
 #banner {
 	display: flex;
 	flex-direction: column;
@@ -112,6 +115,7 @@ header {
 	width: 100%;
 	min-height: 470px;
 	position: relative;
+	object-fit: cover;
 }
 .banner-img {
 	position: absolute;
