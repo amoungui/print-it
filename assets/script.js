@@ -77,5 +77,5 @@ function slider(n) {
 }
 
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+    showSlides(slideIndex = n - 1);
 }
