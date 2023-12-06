@@ -25,8 +25,10 @@ for (var i = 0; i < slides.length; i++) {
 	if (i === 0) {
 		span.className += " dot_selected"; // Ajoutez la classe 'dot_selected' au premier élément
 	}
-	span.setAttribute("onclick", "moveSlides(" + (i+1) + ")"); // Ajoutez l'attribut 'onclick' à l'élément span
+
+	span.setAttribute("onclick", "currentSlide(" + (i + 1) + ")"); // Ajoutez l'attribut 'onclick' à l'élément span
 	dotsDiv.appendChild(span); // Ajoutez l'élément span à la div
+	console.log(dotsDiv);
 }
 
 var slideIndex = 0;
@@ -72,4 +74,8 @@ function slider(n) {
 	slidesDiv.appendChild(img)// Ajouter img dans le conteneur banner
 	slidesDiv.appendChild(p)// Ajouter p dans le conteneur banner
 	customSlider.appendChild(slidesDiv) // Ajouter img dans le conteneur banner
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
 }
