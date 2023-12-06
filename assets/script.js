@@ -25,6 +25,7 @@ for (var i = 0; i < slides.length; i++) {
 	if (i === 0) {
 		span.className += " dot_selected"; // Ajoutez la classe 'dot_selected' au premier élément
 	}
+	span.setAttribute("onclick", "moveSlides(" + (i+1) + ")"); // Ajoutez l'attribut 'onclick' à l'élément span
 	dotsDiv.appendChild(span); // Ajoutez l'élément span à la div
 }
 
@@ -52,7 +53,7 @@ function showSlides(n) {
 
 	// mise à jour des dots
 	for (i = 0; i < dots.length; i++) {
-		dots[i].className = dots[i].className.replace(" dot_selected", "");
+		dots[i].className = dots[i].className.replace(" dot_selected", "");		
 	}
 	dots[slideIndex].className += " dot_selected";
 }
